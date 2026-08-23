@@ -430,3 +430,8 @@ p:last-child{margin-bottom:0;}
 .image-card{position:relative;overflow:hidden;}
 .image-card img{transition:transform .8s var(--ease);}
 .image-card:hover img{transform:scale(1.06);}
+
+.serves-band {
+  padding: 50px;
+  margin-bottom: 10;
+}
