@@ -433,5 +433,6 @@ p:last-child{margin-bottom:0;}
 
 .serves-band {
   padding: 50px;
-  margin-bottom: 10;
+  margin-bottom: 5;
+  margin-left: 10;
 }
