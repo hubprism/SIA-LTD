@@ -452,4 +452,4 @@ p:last-child{margin-bottom:0;}
 
 .serve-title {font-family: 10px;}
 
-.lede {color: white;}
+.lede {color: var(--gold-400);}
