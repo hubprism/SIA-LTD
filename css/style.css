@@ -432,7 +432,7 @@ p:last-child{margin-bottom:0;}
 .image-card:hover img{transform:scale(1.06);}
 
 .serves-band {
- padding:10px 50px;}
+ padding:10px 40px;}
 
  @media (max-width: 768px) {
     .serves-band h2 {
