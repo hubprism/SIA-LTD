@@ -440,12 +440,12 @@ p:last-child{margin-bottom:0;}
     }
 }
 
-.serves-band h2 {padding: 10px}
+.serves-band h2 {padding: 10px; font-family: 11px;}
 
 @media (max-width: 768px) {
     .serve-title {
-         font-size: 15px;
+         font-size: 10px;
     }
 }
 
-.serve-title {font-family: 20px;}
+.serve-title {font-family: 10px;}
