@@ -232,7 +232,7 @@ p:last-child{margin-bottom:0;}
 .hero-content .lede{color:rgba(255,255,255,.8);font-size:1.18rem;margin-bottom:34px;}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
 
-.hero-slides{position:relative;min-height:210px;}
+.hero-slides{position:relative;min-height:100%;}
 .hero-slide{
   position:absolute;inset:0;
   opacity:0;visibility:hidden;
