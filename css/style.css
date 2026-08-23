@@ -433,5 +433,9 @@ p:last-child{margin-bottom:0;}
 
 .serves-band {
  padding:10px 100px;}
-@media (max-width:320px) 
-@media(padding: 0px 0px)
+
+ @media (max-width: 768px) {
+    .serves-band h2 {
+        white-space: nowrap;
+    }
+}
