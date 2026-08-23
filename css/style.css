@@ -446,7 +446,7 @@ p:last-child{margin-bottom:0;}
     .serve-title {
          font-size: 11px;
          white-space: nowrap;
-         padding: 0%;
+         padding-inline: calc(0px);
     }
 }
 
