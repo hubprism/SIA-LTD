@@ -444,7 +444,8 @@ p:last-child{margin-bottom:0;}
 
 @media (max-width: 768px) {
     .serve-title {
-         font-size: 10px;
+         font-size: 11px;
+         white-space: nowrap;
     }
 }
 
