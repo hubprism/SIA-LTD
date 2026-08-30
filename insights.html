@@ -1,0 +1,1014 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Insights | Sustainable Impact Advisory</title>
+
+    <meta name="description"
+        content="Insights, perspectives and practical knowledge from Sustainable Impact Advisory on climate, ESG, environmental health, sustainability and development.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="images/logo2.png" rel="icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* ================================
+       INSIGHTS PAGE
+    ================================= */
+
+        .insights-hero {
+            background: #101d35;
+            color: #fff;
+            padding: 130px 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-hero::before,
+        .insights-hero::after {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 250px;
+            border: 1px solid rgba(198, 161, 91, 0.35);
+            border-radius: 50%;
+            transform: rotate(-8deg);
+        }
+
+        .insights-hero::before {
+            right: -250px;
+            top: 50px;
+        }
+
+        .insights-hero::after {
+            left: -300px;
+            bottom: -150px;
+        }
+
+        .insights-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .insights-hero h1 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 1;
+            font-weight: 500;
+            margin: 15px 0 25px;
+        }
+
+        .insights-hero h1 em {
+            color: #c6a15b;
+            font-weight: 400;
+        }
+
+        .insights-hero p {
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .insights-section {
+            background: #f5f0e7;
+            padding: 90px 0 110px;
+        }
+
+        .insights-intro {
+            max-width: 750px;
+            margin-bottom: 55px;
+        }
+
+        .insights-intro h2 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(34px, 4vw, 52px);
+            font-weight: 500;
+            line-height: 1.15;
+            margin: 12px 0 18px;
+            color: #101d35;
+        }
+
+        .insights-intro p {
+            color: #59606b;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Article Grid */
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .insight-card {
+            background: #fff;
+            border: 1px solid rgba(16, 29, 53, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(16, 29, 53, 0.10);
+        }
+
+        /* SMALL IMAGE */
+
+        .insight-image {
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+        }
+
+        .insight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .insight-card:hover .insight-image img {
+            transform: scale(1.04);
+        }
+
+        .insight-content {
+            padding: 28px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .insight-category {
+            color: #a47f3d;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .insight-date {
+            font-size: 12px;
+            color: #8b919a;
+            margin-bottom: 15px;
+        }
+
+        .insight-content h3 {
+            font-family: "Fraunces", serif;
+            font-size: 26px;
+            line-height: 1.2;
+            color: #101d35;
+            margin: 0 0 15px;
+            font-weight: 500;
+        }
+
+        .insight-content p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #606772;
+            margin: 0;
+        }
+
+        /* FULL ARTICLE */
+
+        .insight-article {
+            margin-top: 18px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(16, 29, 53, 0.10);
+        }
+
+        .insight-article p {
+            margin-bottom: 15px;
+        }
+
+        .insight-article p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Featured article */
+
+        .insight-featured {
+            grid-column: span 2;
+        }
+
+        .insight-featured .insight-image {
+            height: 230px;
+        }
+
+        .insight-featured .insight-content h3 {
+            font-size: 32px;
+        }
+
+        /* CTA */
+
+        .insights-cta {
+            background: #101d35;
+            color: #fff;
+            padding: 90px 0;
+            text-align: center;
+        }
+
+        .insights-cta h2 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 500;
+            margin: 12px auto 20px;
+            max-width: 750px;
+        }
+
+        .insights-cta h2 em {
+            color: #c6a15b;
+        }
+
+        .insights-cta p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 1000px) {
+            .insights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .insight-featured {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .insights-hero {
+                padding: 100px 0 70px;
+            }
+
+            .insights-section {
+                padding: 65px 0 80px;
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .insight-featured {
+                grid-column: span 1;
+            }
+
+            .insight-image,
+            .insight-featured .insight-image {
+                height: 170px;
+            }
+
+            .insight-content {
+                padding: 24px;
+            }
+
+            .insight-featured .insight-content h3 {
+                font-size: 28px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+        <div class="container">
+
+
+            <a href="index.html" class="brand">
+                <div class="logo">
+                    <img src="images/logo2.png" alt="SIA Logo">
+                </div>
+
+                <span class="brand-name">
+                    <span class="full">
+                        Sustainable Impact<br>
+                        Advisory
+                    </span>
+                </span>
+            </a>
+
+            <nav class="nav-main">
+
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li class="nav-dropdown">
+                        <a href="services.html" class="dropdown-toggle">
+                            Services
+                        </a>
+
+                        <div class="nav-dropdown-panel">
+                            <a href="service-climate-resilience.html">
+                                Climate &amp; Resilience
+                            </a>
+
+                            <a href="service-esg-net-zero.html">
+                                ESG &amp; Net-Zero
+                            </a>
+
+                            <a href="service-environmental-health.html">
+                                Environmental Health
+                            </a>
+
+                            <a href="service-monitoring-evaluation.html">
+                                Monitoring &amp; Evaluation
+                            </a>
+
+                            <a href="service-training.html">
+                                Training
+                            </a>
+
+                            <a href="service-programme-management.html">
+                                Programme Management
+                            </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="insights.html" class="active">
+                            Insights
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="nav-cta">
+
+                    <a href="https://wa.me/2349074832034?text=Hello%20SIA%2C%20I'd%20like%20to%20enquire%20about%20your%20services"
+                        class="btn btn-outline" target="_blank" rel="noopener">
+                        Chat on WhatsApp
+                    </a>
+
+                    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" width="24" height="24">
+
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="insights-hero">
+
+
+        <div class="container">
+
+            <div class="insights-hero-inner">
+
+                <div class="eyebrow on-dark">
+                    SIA Insights
+                </div>
+
+                <h1>
+                    Ideas that move<br>
+                    <em>impact forward.</em>
+                </h1>
+
+                <p>
+                    Perspectives, practical insights and evidence-led thinking
+                    on climate resilience, ESG, environmental health,
+                    monitoring and evaluation, and sustainable development.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- INSIGHTS -->
+
+    <section class="insights-section">
+
+
+        <div class="container">
+
+            <div class="insights-intro reveal">
+
+                <div class="eyebrow">
+                    Latest Thinking
+                </div>
+
+                <h2>
+                    Practical perspectives for a changing world.
+                </h2>
+
+                <p>
+                    Our insights explore the challenges organisations,
+                    governments and development partners face in turning
+                    sustainability ambitions into measurable outcomes.
+                </p>
+
+            </div>
+
+
+            <div class="insights-grid">
+
+
+                <!-- ARTICLE 1 -->
+
+                <article class="insight-card insight-featured reveal">
+
+                    <div class="insight-image">
+                        <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Green landscape representing climate resilience">
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            Climate &amp; Resilience
+                        </div>
+
+                        <div class="insight-date">
+                            August 2026
+                        </div>
+
+                        <h3>
+                            From Climate Commitments to Climate Resilience
+                        </h3>
+
+                        <p>
+                            Climate ambition is no longer simply about setting
+                            targets. Organisations increasingly need to understand
+                            how climate risks affect their operations, investments,
+                            communities and long-term development objectives.
+                        </p>
+
+                        <div class="insight-article">
+
+                            <p>
+                                Building resilience begins with understanding the
+                                risks that matter most. Physical climate risks,
+                                changing weather patterns, infrastructure exposure
+                                and vulnerable communities can all affect the
+                                success of a programme or investment.
+                            </p>
+
+                            <p>
+                                Effective resilience therefore requires more than
+                                a policy statement. It requires practical risk
+                                assessment, adaptation planning, appropriate
+                                financing and systems for measuring whether
+                                interventions are actually reducing vulnerability.
+                            </p>
+
+                            <p>
+                                The organisations that will be best positioned for
+                                the future are those that translate climate ambition
+                                into decisions, investments and measurable action.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ARTICLE 2 -->
+
+                <article class="insight-card reveal">
+
+                    <div class="insight-image">
+
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Business professionals discussing sustainability">
+
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            ESG &amp; Net-Zero
+                        </div>
+
+                        <div class="insight-date">
+                            August 2026
+                        </div>
+
+                        <h3>
+                            Why ESG Strategy Must Move Beyond Reporting
+                        </h3>
+
+                        <p>
+                            ESG reporting is important, but reporting alone does
+                            not create sustainable performance.
+                        </p>
+
+                        <div class="insight-article">
+
+                            <p>
+                                Organisations need to connect ESG commitments with
+                                business strategy, operational decisions and
+                                measurable outcomes.
+                            </p>
+
+                            <p>
+                                A credible ESG approach should identify material
+                                risks, establish clear responsibilities and create
+                                a practical roadmap for improvement.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ARTICLE 3 -->
+
+                <article class="insight-card reveal">
+
+                    <div class="insight-image">
+
+                        <img src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Environmental field assessment">
+
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            Environmental Health
+                        </div>
+
+                        <div class="insight-date">
+                            July 2026
+                        </div>
+
+                        <h3>
+                            Environmental Health as a Development Priority
+                        </h3>
+
+                        <p>
+                            Environmental conditions have a direct relationship
+                            with community wellbeing, productivity and sustainable
+                            development.
+                        </p>
+
+                        <div class="insight-article">
+
+                            <p>
+                                Environmental health considerations should be
+                                integrated into project planning rather than treated
+                                as an afterthought.
+                            </p>
+
+                            <p>
+                                Strong assessments help organisations identify
+                                potential impacts, understand exposure pathways and
+                                establish practical mitigation measures.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ARTICLE 4 -->
+
+                <article class="insight-card reveal">
+
+                    <div class="insight-image">
+
+                        <img src="https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Team reviewing monitoring and evaluation information">
+
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            Monitoring &amp; Evaluation
+                        </div>
+
+                        <div class="insight-date">
+                            July 2026
+                        </div>
+
+                        <h3>
+                            Evidence Is What Turns Programmes Into Results
+                        </h3>
+
+                        <p>
+                            A programme cannot demonstrate meaningful impact
+                            without reliable evidence about what changed,
+                            why it changed and who benefited.
+                        </p>
+
+                        <div class="insight-article">
+
+                            <p>
+                                Monitoring and evaluation should therefore be built
+                                into programme design from the beginning.
+                            </p>
+
+                            <p>
+                                Clear indicators, appropriate data collection,
+                                learning mechanisms and independent evaluation can
+                                help organisations make better decisions throughout
+                                the programme lifecycle.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ARTICLE 5 -->
+
+                <article class="insight-card reveal">
+
+                    <div class="insight-image">
+
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Team collaborating around a table">
+
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            Programme Management
+                        </div>
+
+                        <div class="insight-date">
+                            June 2026
+                        </div>
+
+                        <h3>
+                            The Difference Between a Good Programme and a Delivered Programme
+                        </h3>
+
+                        <p>
+                            Strong programme design matters, but successful
+                            delivery requires disciplined implementation.
+                        </p>
+
+                        <div class="insight-article">
+
+                            <p>
+                                Clear governance, accountability, coordination,
+                                risk management and continuous learning are all
+                                essential to keeping complex programmes on track.
+                            </p>
+
+                            <p>
+                                Delivery is where strategy meets reality. The
+                                strongest programmes create systems that allow
+                                teams to respond to challenges without losing sight
+                                of the intended outcomes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ARTICLE 6 -->
+
+                <article class="insight-card reveal">
+
+                    <div class="insight-image">
+
+                        <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Professional training and capacity development">
+
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            Training
+                        </div>
+
+                        <div class="insight-date">
+                            June 2026
+                        </div>
+
+                        <h3>
+                            Building Capacity That Lasts Beyond the Engagement
+                        </h3>
+
+                        <p>
+                            Effective training should leave organisations with
+                            stronger systems, stronger people and the confidence
+                            to continue improving after the engagement ends.
+                        </p>
+
+                        <div class="insight-article">
+
+                            <p>
+                                Capacity building works best when learning is
+                                connected to real organisational challenges and
+                                supported by practical tools.
+                            </p>
+
+                            <p>
+                                The objective should not simply be to complete a
+                                workshop, but to create knowledge and capabilities
+                                that continue delivering value over time.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="insights-cta">
+
+
+        <div class="container reveal">
+
+            <div class="eyebrow center on-dark">
+                Let's Talk
+            </div>
+
+            <h2>
+                Have a sustainability challenge?
+                <em>Let's work through it.</em>
+            </h2>
+
+            <p>
+                Whether the challenge involves climate resilience, ESG,
+                environmental health, monitoring and evaluation or
+                programme delivery, tell us what you are trying to achieve.
+            </p>
+
+            <a href="contact.html" class="btn btn-primary">
+                Start A Conversation
+            </a>
+
+        </div>
+
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <div class="brand" style="color:#fff;">
+
+                        <span class="brand-mark">
+                            SIA
+                        </span>
+
+                        <span class="brand-name" style="color:#fff;">
+                            <span class="full">
+                                Sustainable Impact Advisory Ltd
+                            </span>
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Independent Nigerian advisory on climate, ESG,
+                        environmental health and MEL — turning commitments
+                        into credible, funded, delivered programmes.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>Services</h4>
+
+                    <ul>
+                        <li>
+                            <a href="service-climate-resilience.html">
+                                Climate &amp; Resilience
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-esg-net-zero.html">
+                                ESG &amp; Net-Zero
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-environmental-health.html">
+                                Environmental Health
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-monitoring-evaluation.html">
+                                Monitoring &amp; Evaluation
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-training.html">
+                                Training
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-programme-management.html">
+                                Programme Management
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>Company</h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html">
+                                Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="insights.html">
+                                Insights
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>Contact</h4>
+
+                    <ul>
+
+                        <li>
+                            Garki, Abuja, FCT, Nigeria
+                        </li>
+
+                        <li>
+                            <a href="mailto:aspatozii06@yahoo.co.uk">
+                                aspatozii06@yahoo.co.uk
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://wa.me/2349074832034" target="_blank" rel="noopener">
+                                WhatsApp Us
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    &copy;
+                    <span data-year></span>
+                    Sustainable Impact Advisory Ltd.
+                    All rights reserved.
+                </span>
+
+                <span>
+                    Consulting · Climate · ESG · Environmental Health · MEL
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+
+    <a href="https://wa.me/2349074832034?text=Hello%20SIA%2C%20I'd%20like%20to%20enquire%20about%20your%20services"
+        class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+
+        ```
+        <svg viewBox="0 0 24 24" fill="currentColor">
+
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+
+            <path
+                d="M12.001 2c-5.522 0-10 4.477-10 10 0 1.766.462 3.484 1.34 5.001L2 22l5.132-1.324A9.958 9.958 0 0012.001 22c5.522 0 10-4.477 10-10s-4.478-10-10-10zm0 18.153a8.13 8.13 0 01-4.146-1.13l-.297-.176-3.05.787.814-2.973-.193-.305A8.14 8.14 0 013.85 12c0-4.5 3.65-8.153 8.151-8.153S20.15 7.5 20.15 12 16.501 20.153 12.001 20.153z" />
+
+        </svg>
+
+        <span class="wa-label">
+            Chat with us
+        </span>
+
+
+    </a>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
