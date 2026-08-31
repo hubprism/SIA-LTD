@@ -139,7 +139,7 @@ p:last-child {
 }
 
 .eyebrow::before {
-  content: '';
+
   width: 28px;
   height: 1px;
   background: var(--gold-500);
