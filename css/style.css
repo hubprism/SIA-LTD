@@ -514,6 +514,7 @@ p:last-child {
   position: relative;
   z-index: 2;
   width: 100%;
+  padding-top: 130px;
 }
 
 .hero-content {
@@ -524,6 +525,7 @@ p:last-child {
 .hero-content h1 {
   color: var(--white);
   margin-bottom: 22px;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
 }
 
 .hero-content .lede {
@@ -639,11 +641,12 @@ p:last-child {
 /* ---------- Page hero (inner pages) ---------- */
 .page-hero {
   position: relative;
-  min-height: 64vh;
+  min-height: 68vh;
   display: flex;
   align-items: flex-end;
   background: var(--navy-950);
   overflow: hidden;
+  padding-top: 140px;
 }
 
 .page-hero .hero-media img {
@@ -662,6 +665,7 @@ p:last-child {
 
 .page-hero-content h1 {
   color: var(--white);
+  font-size: clamp(2.4rem, 4.6vw, 4rem);
 }
 
 .breadcrumb {
@@ -2084,39 +2088,57 @@ p:last-child {
     height: 100%;
     object-fit: cover;
   }
+}
 
-  /* =========================================
-   ABOUT PAGE - MOBILE HERO FIX
+/* =========================================
+   PAGE HERO - MOBILE FIX
    ========================================= */
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
 
-    .page-hero {
-      min-height: 650px;
-    }
-
-    .page-hero-content {
-      padding-top: 130px;
-      padding-bottom: 50px;
-    }
-
-    .page-hero-content h1 {
-      font-size: 38px !important;
-      line-height: 1.08;
-      margin: 0 0 25px;
-      padding: 0 !important;
-    }
-
-    .page-hero-content .lede {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
-
-    .page-hero-content .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
+  .page-hero {
+    min-height: 650px;
   }
+
+  .page-hero-content {
+    padding-top: 130px;
+    padding-bottom: 50px;
+  }
+
+  .page-hero-content h1 {
+    font-size: 38px !important;
+    line-height: 1.08;
+    margin: 0 0 25px;
+    padding: 0 !important;
+  }
+
+  .page-hero-content .lede {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .page-hero-content .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+}
+
+/* =========================================
+   MAIN HERO (HOMEPAGE) - MOBILE FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .hero-inner {
+    padding-top: 110px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+}
