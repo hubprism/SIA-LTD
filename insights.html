@@ -110,33 +110,48 @@
             line-height: 1.8;
         }
 
-        /* Article Grid */
+        /* =================================
+   ARTICLE LAYOUT - WIDER VERSION
+================================= */
 
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+        .insights-section .container {
+            width: min(94%, 1450px);
+            max-width: 1450px;
         }
 
-        .insight-card {
+        /* Article Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        /* Each article uses full width */
+        .insight-card,
+        .insight-featured {
+            width: 100%;
+            grid-column: 1 / -1;
             background: #fff;
             border: 1px solid rgba(16, 29, 53, 0.08);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .insight-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             box-shadow: 0 18px 45px rgba(16, 29, 53, 0.10);
         }
 
-        /* SMALL IMAGE */
 
-        .insight-image {
+        /* ================================
+   ARTICLE IMAGE
+================================ */
+
+        .insight-image,
+        .insight-featured .insight-image {
             width: 100%;
-            height: 190px;
+            height: 320px;
             overflow: hidden;
         }
 
@@ -149,14 +164,18 @@
         }
 
         .insight-card:hover .insight-image img {
-            transform: scale(1.04);
+            transform: scale(1.03);
         }
 
+
+        /* ================================
+   ARTICLE INTRO
+================================ */
+
         .insight-content {
-            padding: 28px 28px 32px;
+            padding: 40px 55px 45px;
             display: flex;
             flex-direction: column;
-            flex: 1;
         }
 
         .insight-category {
@@ -165,133 +184,197 @@
             font-weight: 800;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+        }
+
+        .insight-content h3,
+        .insight-featured .insight-content h3 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(28px, 3vw, 40px);
+            line-height: 1.18;
+            color: #101d35;
+            margin: 0 0 18px;
+            font-weight: 500;
+            max-width: 1000px;
+        }
+
+        .insight-content>p.insight-excerpt {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #606772;
+            margin: 0 0 18px;
+            max-width: 1100px;
         }
 
         .insight-date {
-            font-size: 12px;
+            font-size: 13px;
             color: #8b919a;
-            margin-bottom: 15px;
+            margin: 0 0 22px;
         }
 
-        .insight-content h3 {
-            font-family: "Fraunces", serif;
-            font-size: 26px;
-            line-height: 1.2;
+
+        /* ================================
+   READ MORE BUTTON
+================================ */
+
+        .insight-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            align-self: flex-start;
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: "Manrope", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
             color: #101d35;
-            margin: 0 0 15px;
-            font-weight: 500;
+            cursor: pointer;
         }
 
-        .insight-content p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #606772;
-            margin: 0;
+        .insight-toggle .toggle-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid #c6a15b;
+            color: #a47f3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* FULL ARTICLE */
+
+        /* ================================
+   EXPANDED ARTICLE
+================================ */
 
         .insight-article {
-            margin-top: 18px;
-            padding-top: 20px;
+            display: grid;
+            grid-template-rows: 0fr;
+            opacity: 0;
+            transition:
+                grid-template-rows 0.4s ease,
+                opacity 0.3s ease,
+                margin-top 0.4s ease;
+        }
+
+        .insight-article>div {
+            overflow: hidden;
+        }
+
+        .insight-article.open {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            margin-top: 30px;
+        }
+
+        .insight-article-inner {
+            padding-top: 32px;
             border-top: 1px solid rgba(16, 29, 53, 0.10);
+
+            /* important: allows the article to use more width */
+            width: 100%;
+            max-width: 1180px;
         }
 
+        /* Article paragraphs */
         .insight-article p {
-            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.9;
+            color: #4f5763;
+            margin: 0 0 22px;
         }
 
-        .insight-article p:last-child {
-            margin-bottom: 0;
+        /* Article lists */
+        .insight-article ul {
+            margin: 5px 0 24px;
+            padding-left: 28px;
+            max-width: 1100px;
         }
 
-        /* Featured article */
-
-        .insight-featured {
-            grid-column: span 2;
+        .insight-article li {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #4f5763;
+            margin-bottom: 10px;
         }
 
-        .insight-featured .insight-image {
-            height: 230px;
+        .insight-article strong,
+        .insight-article b {
+            color: #101d35;
         }
 
-        .insight-featured .insight-content h3 {
-            font-size: 32px;
+        .insight-article a {
+            color: #a47f3d;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
-        /* CTA */
 
-        .insights-cta {
-            background: #101d35;
-            color: #fff;
-            padding: 90px 0;
-            text-align: center;
-        }
-
-        .insights-cta h2 {
-            font-family: "Fraunces", serif;
-            font-size: clamp(36px, 5vw, 58px);
-            font-weight: 500;
-            margin: 12px auto 20px;
-            max-width: 750px;
-        }
-
-        .insights-cta h2 em {
-            color: #c6a15b;
-        }
-
-        .insights-cta p {
-            max-width: 650px;
-            margin: 0 auto 30px;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.8;
-        }
-
-        /* Responsive */
+        /* ================================
+   TABLET
+================================ */
 
         @media (max-width: 1000px) {
-            .insights-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            .insights-section .container {
+                width: min(92%, 1000px);
             }
 
-            .insight-featured {
-                grid-column: span 2;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .insights-hero {
-                padding: 100px 0 70px;
-            }
-
-            .insights-section {
-                padding: 65px 0 80px;
-            }
-
-            .insights-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .insight-featured {
-                grid-column: span 1;
+            .insight-content {
+                padding: 35px 38px 40px;
             }
 
             .insight-image,
             .insight-featured .insight-image {
-                height: 170px;
+                height: 280px;
+            }
+        }
+
+
+        /* ================================
+   MOBILE
+================================ */
+
+        @media (max-width: 700px) {
+
+            .insights-section .container {
+                width: 90%;
+            }
+
+            .insights-grid {
+                gap: 28px;
             }
 
             .insight-content {
-                padding: 24px;
+                padding: 25px 22px 30px;
             }
 
+            .insight-image,
+            .insight-featured .insight-image {
+                height: 190px;
+            }
+
+            .insight-content h3,
             .insight-featured .insight-content h3 {
-                font-size: 28px;
+                font-size: 27px;
             }
 
+            .insight-content>p.insight-excerpt {
+                font-size: 14px;
+                line-height: 1.8;
+            }
 
+            .insight-article-inner {
+                padding-top: 24px;
+            }
+
+            .insight-article p,
+            .insight-article li {
+                font-size: 14px;
+                line-height: 1.8;
+            }
         }
     </style>
 
@@ -440,481 +523,546 @@
 
     <section class="insights-section">
 
+        <div class="container">
+
+            <div class="insights-grid">
 
 
+                <!-- ARTICLE 1 -->
 
+                <article class="insight-card insight-featured reveal">
 
-        <div class="insights-grid">
-
-
-            <!-- ARTICLE 1 -->
-
-            <article class="insight-card insight-featured reveal">
-
-                <div class="insight-image">
-                    <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1000"
-                        alt="Green landscape representing climate resilience">
-                </div>
-
-                <div class="insight-content">
-
-                    <div class="insight-category">
-                        Climate &amp; Resilience
+                    <div class="insight-image">
+                        <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                            alt="Green landscape representing climate resilience">
                     </div>
 
-                    <div class="insight-date">
-                        Sustainable Impact Advisory· August 2026
-                    </div>
+                    <div class="insight-content">
 
-                    <h3>
-                        Resilience and adaptation: why they're not the same thing
-                        by The SIA Team
+                        <div class="insight-category">
+                            Climate &amp; Resilience
+                        </div>
 
-                    </h3>
+                        <h3>
+                            Resilience and adaptation: why they're not the same thing
+                        </h3>
 
-                    <p>
-                        Governments talk about “climate resilience” as if it were interchangeable with “adaptation.” It
-                        isn't — and the confusion between them is one of the most common (and costly) mistakes
-                        institutions make when developing a climate strategy.
-                    </p>
-
-                    <div class="insight-article">
-
-                        <p>
-                            Adaptation and resilience are not the same thing<br>
-                            <b>Adaptation</b> is a specific action: adjusting a system, a piece of infrastructure, or a
-                            livelihood in response to a known or expected climate impact, such as a sea wall, a
-                            drought-resistant crop, or a redesigned drainage system. Each is discrete and targeted.
-
+                        <p class="insight-excerpt">
+                            Governments talk about "climate resilience" as if it were interchangeable with "adaptation."
+                            It
+                            isn't — and the confusion between them is one of the most common (and costly) mistakes
+                            institutions make when developing a climate strategy.
                         </p>
 
-                        <p>
-                            <b>Resilience</b> is broader: the capacity of a system to absorb a shock, continue
-                            functioning, and
-                            recover without collapsing. It's the cumulative result of many adaptation measures working
-                            together, supported by institutional coordination, trust, and functioning communication
-                            networks.
-                        </p>
+                        <div class="insight-date">
+                            By The SIA Team · August 2026
+                        </div>
 
-                        <p>
-                            A real case: Bangladesh's Cyclone Preparedness Programme
-                            Bangladesh's cyclone history shows clear progress. The 1970 Bhola cyclone killed
-                            300,000–500,000 people, and the 1991 cyclone caused 138,000-147,000 deaths. By contrast,
-                            Cyclone Remal in May 2024 resulted in only 16-18 deaths, despite affecting 4.6 million
-                            people. Over 800,000 people evacuated to shelters. This decline highlights Bangladesh's
-                            investments in early warning, community readiness, and large-scale evacuations, which have
-                            significantly improved protection.
+                        <button class="insight-toggle" aria-expanded="false">
+                            <span class="toggle-label">Read more</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
 
-                        </p>
+                        <div class="insight-article">
+                            <div class="insight-article-inner">
 
-                        <p>
-                            This outcome does not stem from a single adaptation strategy. It is the result of
-                            Bangladesh's Cyclone Preparedness Programme (CPP) — a collaborative initiative involving the
-                            government, the Bangladesh Red Crescent Society, and global partners, centred on thousands
-                            of trained local volunteers, an early-warning communication network, and shelters that have
-                            been tested through consistent use. Research into the programme's more recent performance
-                            also found that pairing early warning with community-based health preparedness — clean water
-                            provision and mobile medical units embedded directly in the evacuation process — reduced
-                            post-cyclone diarrhoeal disease outbreaks by roughly 40% compared with the 2007 Cyclone Sidr
-                            response. That's resilience: adaptation measures functioning as a coordinated system rather
-                            than a list of independent projects.
+                                <p>
+                                    <b>Adaptation</b> is a specific action: adjusting a system, a piece of
+                                    infrastructure, or a
+                                    livelihood in response to a known or expected climate impact, such as a sea wall, a
+                                    drought-resistant crop, or a redesigned drainage system. Each is discrete and
+                                    targeted.
+                                </p>
 
-                        </p>
+                                <p>
+                                    <b>Resilience</b> is broader: the capacity of a system to absorb a shock, continue
+                                    functioning, and recover without collapsing. It's the cumulative result of many
+                                    adaptation
+                                    measures working together, supported by institutional coordination, trust, and
+                                    functioning
+                                    communication networks.
+                                </p>
 
-                        <p>
-                            It is important to highlight the same research's findings on equity: warning messages
-                            reached male-headed and farming households at rates 11–13 percentage points higher than
-                            those for female-headed and fishing households. Even a resilience system as effective as
-                            Bangladesh's still has to keep closing gaps in who the system actually protects — a reminder
-                            that resilience isn't just a technical achievement; it's an ongoing equity commitment.
+                                <p>
+                                    <strong>A real case: Bangladesh's Cyclone Preparedness Programme</strong><br>
+                                    Bangladesh's cyclone history shows clear progress. The 1970 Bhola cyclone killed
+                                    300,000–500,000 people, and the 1991 cyclone caused 138,000-147,000 deaths. By
+                                    contrast,
+                                    Cyclone Remal in May 2024 resulted in only 16-18 deaths, despite affecting 4.6
+                                    million
+                                    people. Over 800,000 people evacuated to shelters. This decline highlights
+                                    Bangladesh's
+                                    investments in early warning, community readiness, and large-scale evacuations,
+                                    which have
+                                    significantly improved protection.
+                                </p>
 
-                        </p>
+                                <p>
+                                    This outcome does not stem from a single adaptation strategy. It is the result of
+                                    Bangladesh's Cyclone Preparedness Programme (CPP) — a collaborative initiative
+                                    involving the
+                                    government, the Bangladesh Red Crescent Society, and global partners, centred on
+                                    thousands
+                                    of trained local volunteers, an early-warning communication network, and shelters
+                                    that have
+                                    been tested through consistent use. Research into the programme's more recent
+                                    performance
+                                    also found that pairing early warning with community-based health preparedness —
+                                    clean water
+                                    provision and mobile medical units embedded directly in the evacuation process —
+                                    reduced
+                                    post-cyclone diarrhoeal disease outbreaks by roughly 40% compared with the 2007
+                                    Cyclone Sidr
+                                    response. That's resilience: adaptation measures functioning as a coordinated system
+                                    rather
+                                    than a list of independent projects.
+                                </p>
 
-                        <p>
-                            Why “adaptation” alone isn't a resilience strategy<br>
-                            In practice, most government climate programmes are a portfolio of individual adaptation
-                            projects — a flood defence here, a drought-resilient seed programme there — commissioned and
-                            evaluated one at a time. Bangladesh's experience shows what happens when those pieces are
-                            instead designed to function as a single system: warning, shelter, evacuation and health
-                            response reinforce each other rather than operating in isolation.<br><br>
-                            Climate finance readiness increasingly reflects this shift. Resilience facilities and
-                            adaptation funds are moving towards rewarding applicants who demonstrate systemic thinking,
-                            rather than a disconnected list of adaptation projects competing for the same budget line.
-                        </p>
-                        <p>
-                            <strong>SIA's niche sits</strong><br>
-                            This is the specific gap we were built to close. Most firms in this space deliver individual
-                            adaptation projects well, but rarely step back to ask whether those projects are actually
-                            building the underlying resilience they're meant to support. We work at both levels, helping
-                            government agencies, development partners and corporations:
-                            <li>Build climate risk and vulnerability assessments that identify where resilience gaps
-                                compound across a system, not just where individual exposures li</li>
-                            <li>Design adaptation measures prioritised against system-wide resilience outcomes</li>
-                            <li>Structure climate finance applications that demonstrate coherent resilience strategy
-                            </li>
-                            <li>Design monitoring frameworks to track whether resilience — and equity of protection — is
-                                improving over time</li>
-                        </p>
-                        <p>Talk to us<br>
-                            If your organisation is scoping a first climate risk assessment, evaluating whether an
-                            existing adaptation portfolio is building resilience, or preparing a climate finance
-                            submission that needs to demonstrate systemic thinking, that's exactly the conversation to
-                            have with us early on.
-                        </p>
+                                <p>
+                                    It is important to highlight the same research's findings on equity: warning
+                                    messages
+                                    reached male-headed and farming households at rates 11–13 percentage points higher
+                                    than
+                                    those for female-headed and fishing households. Even a resilience system as
+                                    effective as
+                                    Bangladesh's still has to keep closing gaps in who the system actually protects — a
+                                    reminder
+                                    that resilience isn't just a technical achievement; it's an ongoing equity
+                                    commitment.
+                                </p>
 
-                        </p>
+                                <p>
+                                    <strong>Why "adaptation" alone isn't a resilience strategy</strong><br>
+                                    In practice, most government climate programmes are a portfolio of individual
+                                    adaptation
+                                    projects — a flood defence here, a drought-resilient seed programme there —
+                                    commissioned and
+                                    evaluated one at a time. Bangladesh's experience shows what happens when those
+                                    pieces are
+                                    instead designed to function as a single system: warning, shelter, evacuation and
+                                    health
+                                    response reinforce each other rather than operating in isolation.
+                                </p>
 
-                        <p>
-                            <b>Sources</b><br>
-                            1. Habib, A., Shahidullah, M., & Ahmed, D. (2012). The Bangladesh Cyclone Preparedness
-                            Program: A vital component of the nation’s multi-hazard early warning system. In M.
-                            Golnaraghi (Ed.), Institutional Partnerships in Multi-Hazard Early Warning Systems (pp.
-                            29–62). Springer. <a href="https://doi.org/10.1007/978-3-642-25373-7_3">Read
-                                more</a><br><br>
-                            2. United Nations Office for Disaster Risk Reduction (UNDRR). (2025). Bridging national
-                            strategy and local action: Bangladesh’s success in vertical DRR integration [Case study].
-                            <a
-                                href="https://www.undrr.org/resource/case-study/bridging-national-strategy-and-local-action-bangladeshs-success-vertical-drr">Read
-                                more</a><br><br>
-                            3. ATACH Community of Practice for Climate Resilient and Low Carbon Sustainable Health
-                            Systems. (2025). Community-based health preparedness for cyclones in Bangladesh [Case
-                            study].
-                            <a
-                                href="https://www.atachcommunity.com/our-impact/case-studies/community-based-health-preparedness-for-cyclones-in-bangladesh/">Read
-                                more</a><br><br>
-                            4. Zaman, T., Tahsin, K. T., Rousseau Rozario, S., Kamal, A. B., Khan, M. R., Huq, S., &
-                            Bodrud-Doza, M. (2022). An overview of disaster risk reduction and anticipatory action in
-                            Bangladesh. Frontiers in Climate, 4, 944736. <a
-                                href="https://doi.org/10.3389/fclim.2022.944736">Read more</a><br><br>
-                            5. Hossain, M. L. (2026). Beyond warnings and shelters: local institutions and trust build
-                            cyclone resilience in Bangladesh. npj Natural Hazards, 3, 17. <a
-                                href="https://doi.org/10.1038/s44304-026-00177-9">Read more</a>
+                                <p>
+                                    Climate finance readiness increasingly reflects this shift. Resilience facilities
+                                    and
+                                    adaptation funds are moving towards rewarding applicants who demonstrate systemic
+                                    thinking,
+                                    rather than a disconnected list of adaptation projects competing for the same budget
+                                    line.
+                                </p>
 
-                        </p>
-                    </div>
+                                <p>
+                                    <strong>Where SIA's niche sits</strong><br>
+                                    This is the specific gap we were built to close. Most firms in this space deliver
+                                    individual
+                                    adaptation projects well, but rarely step back to ask whether those projects are
+                                    actually
+                                    building the underlying resilience they're meant to support. We work at both levels,
+                                    helping
+                                    government agencies, development partners and corporations:
+                                </p>
 
-                </div>
+                                <ul>
+                                    <li>Build climate risk and vulnerability assessments that identify where resilience
+                                        gaps compound across a system, not just where individual exposures lie</li>
+                                    <li>Design adaptation measures prioritised against system-wide resilience outcomes
+                                    </li>
+                                    <li>Structure climate finance applications that demonstrate coherent resilience
+                                        strategy</li>
+                                    <li>Design monitoring frameworks to track whether resilience — and equity of
+                                        protection — is improving over time</li>
+                                </ul>
 
-            </article>
+                                <p>
+                                    <strong>Talk to us</strong><br>
+                                    If your organisation is scoping a first climate risk assessment, evaluating whether
+                                    an
+                                    existing adaptation portfolio is building resilience, or preparing a climate finance
+                                    submission that needs to demonstrate systemic thinking, that's exactly the
+                                    conversation to
+                                    have with us early on.
+                                </p>
 
+                                <p>
+                                    <b>Sources</b><br>
+                                    1. Habib, A., Shahidullah, M., & Ahmed, D. (2012). The Bangladesh Cyclone
+                                    Preparedness
+                                    Program: A vital component of the nation's multi-hazard early warning system. In M.
+                                    Golnaraghi (Ed.), Institutional Partnerships in Multi-Hazard Early Warning Systems
+                                    (pp.
+                                    29–62). Springer. <a href="https://doi.org/10.1007/978-3-642-25373-7_3">Read
+                                        more</a><br><br>
+                                    2. United Nations Office for Disaster Risk Reduction (UNDRR). (2025). Bridging
+                                    national
+                                    strategy and local action: Bangladesh's success in vertical DRR integration [Case
+                                    study].
+                                    <a
+                                        href="https://www.undrr.org/resource/case-study/bridging-national-strategy-and-local-action-bangladeshs-success-vertical-drr">Read
+                                        more</a><br><br>
+                                    3. ATACH Community of Practice for Climate Resilient and Low Carbon Sustainable
+                                    Health
+                                    Systems. (2025). Community-based health preparedness for cyclones in Bangladesh
+                                    [Case study].
+                                    <a
+                                        href="https://www.atachcommunity.com/our-impact/case-studies/community-based-health-preparedness-for-cyclones-in-bangladesh/">Read
+                                        more</a><br><br>
+                                    4. Zaman, T., Tahsin, K. T., Rousseau Rozario, S., Kamal, A. B., Khan, M. R., Huq,
+                                    S., &
+                                    Bodrud-Doza, M. (2022). An overview of disaster risk reduction and anticipatory
+                                    action in
+                                    Bangladesh. Frontiers in Climate, 4, 944736. <a
+                                        href="https://doi.org/10.3389/fclim.2022.944736">Read more</a><br><br>
+                                    5. Hossain, M. L. (2026). Beyond warnings and shelters: local institutions and trust
+                                    build
+                                    cyclone resilience in Bangladesh. npj Natural Hazards, 3, 17. <a
+                                        href="https://doi.org/10.1038/s44304-026-00177-9">Read more</a>
+                                </p>
 
-            <!-- ARTICLE 2 -->
-
-            <article class="insight-card reveal">
-
-                <div class="insight-image">
-
-                    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Business professionals discussing sustainability">
-
-                </div>
-
-                <div class="insight-content">
-
-                    <div class="insight-category">
-                        TRAINING &amp; MONITORING &amp; EVALUATION
-                    </div>
-
-                    <div class="insight-date">
-                        By The SIA Team · Sustainable Impact Advisory Ltd · September 2026
-                    </div>
-
-                    <h3>
-                        Beyond Training: Building Capability Through MEL
-                    </h3>
-
-                    <p>
-                        Most institutions often claim their training programmes are effective based on attendance sheets
-                        and satisfaction surveys. However, this doesn't prove impact; it merely shows that participants
-                        attended.
-                    </p>
-
-                    <div class="insight-article">
-
-                        <p>
-                            A real case: West Africa's regional research training programme
-                            Between 2008 and 2013, the West African Health Organisation (WAHO) held various workshops in
-                            ECOWAS nations such as Burkina Faso, The Gambia, Guinea-Bissau, Togo, and Liberia. These
-                            sessions focused on research methodology and trained 84 health researchers and programme
-                            managers. A peer-reviewed evaluation in BMC Medical Education (2021) offers a candid
-                            assessment of the training's outcomes and limitations.
-
-                        </p>
-
-                        <p>
-                            On metrics closest to the training room, the programme was clearly successful: participant
-                            knowledge scores rose from under 50% correct on the pre-test to well over 50% on the
-                            post-test at nearly every session, and 64.3% of trainees went on to actively conduct
-                            research afterwards — well above what typical one-off workshops achieve. Sixteen research
-                            protocols were funded, and fourteen were fully implemented.
-
-                        </p>
-
-                        <p>
-                            But the evaluation also tracked what happened next — and that's where the gap opened. Of
-                            those fourteen completed projects, only two were published as scientific articles, only two
-                            were shared through national dissemination workshops, and only two demonstrably influenced a
-                            real programme decision (a national sickle-cell disease programme in Niger and
-                            emergency-service reorganisation at a hospital in Côte d'Ivoire). The evaluators' own
-                            conclusion was direct: training built knowledge and even research practice, but the
-                            programme hadn't built the modules — in data analysis, scientific writing, and knowledge
-                            transfer — needed to get that evidence into use. Capacity was built. The pipeline from
-                            capacity to institutional decision-making wasn't.
-                        </p>
-
-                        <p>
-                            What this shows about training design<br>
-                            Effective MEL shouldn't be an afterthought following training—it must be integrated from the
-                            beginning. It should assess not only if individuals learned, but also if the organisation
-                            created a pathway for that knowledge to inform decision-making.
-
-                            <li><b>Baseline assessment</b> — what can participants do before training starts?</li>
-                            <li><b>Practice-linked design</b> — real protocols, real data, not hypothetical exercises.
-                            </li>
-                            <li><b>Dissemination built into scope</b> — publication, internal reporting, and
-                                knowledge-transfer support budgeted from day one, not treated as optional extras.</li>
-                            <li><b>Follow-up tracking</b> — whether findings actually changed a programme decision, not
-                                merely whether a report was filed.</li>
-                        </p>
-
-                        <p>
-                            The WAHO evaluation makes the case better than any hypothetical could: even a well-designed,
-                            well-evaluated training programme can build real skills yet still under-deliver on impact if
-                            the MEL framework around it stops at "was the training delivered?” rather than “did the
-                            evidence produced ever reach a decision-maker?"
-                        </p>
-
-                        <p>
-                            Where SIA's niche sits<br>
-                            This is why we treat training and MEL as an integrated capability rather than two separate
-                            service lines. A training programme we design includes an evaluation and dissemination
-                            framework built in from day one — not just pre- and post-knowledge testing, but a defined
-                            pathway to ensure findings reach the people who can act on them.
-
-                        </p>
-
-                        <p>
-                            Talk to us<br>
-                            If your institution is planning capacity-building work, or trying to understand why a past
-                            training investment hasn't translated into changed practice, that's the conversation to
-                            start with us.
-                        </p>
-
-                        <p>
-                            Sources<br>
-                            Sombé, I., Bamouni, S. F., Somé, D. T., Johnson, E., & Aidam, J. (2021). From training to
-                            practice: a report of professional capacity development in Health Research in West Africa.
-                            BMC Medical Education, 21, 259. <a href=" https://doi.org/10.1186/s12909-021-02696-7"> read
-                                more</a>
-
-                        </p>
+                            </div>
+                        </div>
 
                     </div>
 
-                </div>
-
-            </article>
+                </article>
 
 
-            <!-- ARTICLE 3 -->
+                <!-- ARTICLE 2 -->
 
-            <article class="insight-card reveal">
+                <article class="insight-card insight-featured reveal">
 
-                <div class="insight-image">
+                    <div class="insight-image">
 
-                    <img src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Environmental field assessment">
-
-                </div>
-
-                <div class="insight-content">
-
-                    <div class="insight-category">
-                        ENVIRONMENTAL HEALTH
-                    </div>
-
-                    <div class="insight-date">
-                        By The SIA Team · Sustainable Impact Advisory Ltd· July 2026
-                    </div>
-
-                    <h3>
-                        Environmental health risks, climate change, and the populations most vulnerable to exposure.
-                    </h3>
-
-                    <p>
-                        Climate change is usually discussed in terms of temperature and emissions. But its most
-                        immediate consequences are health-related — and they don't fall evenly. The populations already
-                        carrying the greatest burden of health inequality are, almost without exception, the same
-                        populations facing the sharpest environmental health risk.
-                    </p>
-
-                    <div class="insight-article">
-
-                        <p>
-                            A real case: Ogoniland, Niger Delta<br>
-                            In 2011, the United Nations Environment Programme published its Environmental Assessment of
-                            Ogoniland, a comprehensive fourteen-month investigation commissioned by the Nigerian
-                            government. The assessment covered more than 200 sites, analysed over 4,000 samples,
-                            reviewed more than 5,000 medical records, and engaged consultations with over 23,000
-                            individuals from the affected communities.
-
-                        </p>
-
-                        <p>
-                            A real case: Ogoniland, Niger Delta<br>
-                            In 2011, the United Nations Environment Programme published its Environmental Assessment of
-                            Ogoniland, a comprehensive fourteen-month investigation commissioned by the Nigerian
-                            government. The assessment covered more than 200 sites, analysed over 4,000 samples,
-                            reviewed more than 5,000 medical records, and engaged consultations with over 23,000
-                            individuals from the affected communities.
-
-                        </p>
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Business professionals discussing sustainability">
 
                     </div>
 
-                </div>
+                    <div class="insight-content">
 
-            </article>
+                        <div class="insight-category">
+                            Training &amp; Monitoring &amp; Evaluation
+                        </div>
 
+                        <h3>
+                            Beyond Training: Building Capability Through MEL
+                        </h3>
 
-            <!-- ARTICLE 4 -->
-
-            <article class="insight-card reveal">
-
-                <div class="insight-content">
-
-                    <p>
-                        The findings were unequivocal. In the community of Ogale, groundwater was found to be
-                        contaminated with benzene, a known human carcinogen, at levels hundreds of times above World
-                        Health Organisation (WHO) guidelines. These concentration levels were sufficiently severe for
-                        UNEP to recommend the urgent provision of alternative drinking water prior to any other
-                        remediation measures. The report further disclosed that years of inadequate maintenance of
-                        oilfield infrastructure have resulted in contamination spreading more extensively and deeper
-                        than previously recognised, thereby posing a substantial risk to public health from contaminated
-                        drinking water and carcinogenic substances in several regions. UNEP estimated that complete
-                        ecological restoration of the area could require 25 to 30 years.
-                    </p>
-
-                    <div class="insight-article">
-
-                        <p>
-                            This exemplifies environmental health inequality in its starkest form: a community situated
-                            directly above the resource that generates considerable national wealth, yet bearing some of
-                            the highest documented levels of health exposure in the country, with remediation efforts
-                            still incomplete more than a decade after the assessment was published. The Nigerian
-                            government established the Hydrocarbon Pollution Remediation Project (HYPREP) in response;
-                            however, its implementation has faced persistent delays — a pattern that underscores a
-                            second, equally important lesson: recognising health inequality does not equate to
-                            eradicating it. Sustained institutional commitment is as crucial as the initial assessment.
+                        <p class="insight-excerpt">
+                            Most institutions often claim their training programmes are effective based on attendance
+                            sheets
+                            and satisfaction surveys. However, this doesn't prove impact; it merely shows that
+                            participants
+                            attended.
                         </p>
 
-                        <p>
-                            Why this matters beyond one region
-                            The pattern isn't unique to the Niger Delta. Communities closest to industrial or extractive
-                            activity are consistently those with the least healthcare infrastructure, the least
-                            political leverage to demand remediation, and the least financial capacity to relocate or
-                            absorb health costs. Climate change compounds this further — rising temperatures, floods,
-                            shifting disease patterns, and water stress hit populations already carrying the greatest
-                            pre-existing health burden hardest. The inequality isn't created by any single event. It's
-                            revealed and worsened by it.
+                        <div class="insight-date">
+                            By The SIA Team · September 2026
+                        </div>
 
-                        </p>
+                        <button class="insight-toggle" aria-expanded="false">
+                            <span class="toggle-label">Read more</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+
+                        <div class="insight-article">
+                            <div class="insight-article-inner">
+
+                                <p>
+                                    <strong>A real case: West Africa's regional research training programme</strong><br>
+                                    Between 2008 and 2013, the West African Health Organisation (WAHO) held various
+                                    workshops in
+                                    ECOWAS nations such as Burkina Faso, The Gambia, Guinea-Bissau, Togo, and Liberia.
+                                    These
+                                    sessions focused on research methodology and trained 84 health researchers and
+                                    programme
+                                    managers. A peer-reviewed evaluation in BMC Medical Education (2021) offers a candid
+                                    assessment of the training's outcomes and limitations.
+                                </p>
+
+                                <p>
+                                    On metrics closest to the training room, the programme was clearly successful:
+                                    participant
+                                    knowledge scores rose from under 50% correct on the pre-test to well over 50% on the
+                                    post-test at nearly every session, and 64.3% of trainees went on to actively conduct
+                                    research afterwards — well above what typical one-off workshops achieve. Sixteen
+                                    research
+                                    protocols were funded, and fourteen were fully implemented.
+                                </p>
+
+                                <p>
+                                    But the evaluation also tracked what happened next — and that's where the gap
+                                    opened. Of
+                                    those fourteen completed projects, only two were published as scientific articles,
+                                    only two
+                                    were shared through national dissemination workshops, and only two demonstrably
+                                    influenced a
+                                    real programme decision (a national sickle-cell disease programme in Niger and
+                                    emergency-service reorganisation at a hospital in Côte d'Ivoire). The evaluators'
+                                    own
+                                    conclusion was direct: training built knowledge and even research practice, but the
+                                    programme hadn't built the modules — in data analysis, scientific writing, and
+                                    knowledge
+                                    transfer — needed to get that evidence into use. Capacity was built. The pipeline
+                                    from
+                                    capacity to institutional decision-making wasn't.
+                                </p>
+
+                                <p>
+                                    <strong>What this shows about training design</strong><br>
+                                    Effective MEL shouldn't be an afterthought following training — it must be
+                                    integrated from
+                                    the beginning. It should assess not only if individuals learned, but also if the
+                                    organisation created a pathway for that knowledge to inform decision-making.
+                                </p>
+
+                                <ul>
+                                    <li><b>Baseline assessment</b> — what can participants do before training starts?
+                                    </li>
+                                    <li><b>Practice-linked design</b> — real protocols, real data, not hypothetical
+                                        exercises.</li>
+                                    <li><b>Dissemination built into scope</b> — publication, internal reporting, and
+                                        knowledge-transfer support budgeted from day one, not treated as optional
+                                        extras.</li>
+                                    <li><b>Follow-up tracking</b> — whether findings actually changed a programme
+                                        decision, not merely whether a report was filed.</li>
+                                </ul>
+
+                                <p>
+                                    The WAHO evaluation makes the case better than any hypothetical could: even a
+                                    well-designed,
+                                    well-evaluated training programme can build real skills yet still under-deliver on
+                                    impact if
+                                    the MEL framework around it stops at "was the training delivered?" rather than "did
+                                    the
+                                    evidence produced ever reach a decision-maker?"
+                                </p>
+
+                                <p>
+                                    <strong>Where SIA's niche sits</strong><br>
+                                    This is why we treat training and MEL as an integrated capability rather than two
+                                    separate
+                                    service lines. A training programme we design includes an evaluation and
+                                    dissemination
+                                    framework built in from day one — not just pre- and post-knowledge testing, but a
+                                    defined
+                                    pathway to ensure findings reach the people who can act on them.
+                                </p>
+
+                                <p>
+                                    <strong>Talk to us</strong><br>
+                                    If your institution is planning capacity-building work, or trying to understand why
+                                    a past
+                                    training investment hasn't translated into changed practice, that's the conversation
+                                    to
+                                    start with us.
+                                </p>
+
+                                <p>
+                                    <b>Sources</b><br>
+                                    Sombé, I., Bamouni, S. F., Somé, D. T., Johnson, E., & Aidam, J. (2021). From
+                                    training to
+                                    practice: a report of professional capacity development in Health Research in West
+                                    Africa.
+                                    BMC Medical Education, 21, 259. <a
+                                        href="https://doi.org/10.1186/s12909-021-02696-7">Read more</a>
+                                </p>
+
+                            </div>
+                        </div>
 
                     </div>
 
-                </div>
-
-            </article>
+                </article>
 
 
-            <!-- ARTICLE 5 -->
+                <!-- ARTICLE 3 -->
 
-            <article class="insight-card reveal">
+                <article class="insight-card insight-featured reveal">
+
+                    <div class="insight-image">
+
+                        <img src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Environmental field assessment">
+
+                    </div>
+
+                    <div class="insight-content">
+
+                        <div class="insight-category">
+                            Environmental Health
+                        </div>
+
+                        <h3>
+                            Environmental health risks, climate change, and the populations most vulnerable to exposure
+                        </h3>
+
+                        <p class="insight-excerpt">
+                            Climate change is usually discussed in terms of temperature and emissions. But its most
+                            immediate consequences are health-related — and they don't fall evenly. The populations
+                            already
+                            carrying the greatest burden of health inequality are, almost without exception, the same
+                            populations facing the sharpest environmental health risk.
+                        </p>
+
+                        <div class="insight-date">
+                            By The SIA Team · July 2026
+                        </div>
+
+                        <button class="insight-toggle" aria-expanded="false">
+                            <span class="toggle-label">Read more</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+
+                        <div class="insight-article">
+                            <div class="insight-article-inner">
+
+                                <p>
+                                    <strong>A real case: Ogoniland, Niger Delta</strong><br>
+                                    In 2011, the United Nations Environment Programme published its Environmental
+                                    Assessment of
+                                    Ogoniland, a comprehensive fourteen-month investigation commissioned by the Nigerian
+                                    government. The assessment covered more than 200 sites, analysed over 4,000 samples,
+                                    reviewed more than 5,000 medical records, and engaged consultations with over 23,000
+                                    individuals from the affected communities.
+                                </p>
+
+                                <p>
+                                    The findings were unequivocal. In the community of Ogale, groundwater was found to
+                                    be
+                                    contaminated with benzene, a known human carcinogen, at levels hundreds of times
+                                    above World
+                                    Health Organisation (WHO) guidelines. These concentration levels were sufficiently
+                                    severe
+                                    for UNEP to recommend the urgent provision of alternative drinking water prior to
+                                    any other
+                                    remediation measures. The report further disclosed that years of inadequate
+                                    maintenance of
+                                    oilfield infrastructure have resulted in contamination spreading more extensively
+                                    and
+                                    deeper than previously recognised, thereby posing a substantial risk to public
+                                    health from
+                                    contaminated drinking water and carcinogenic substances in several regions. UNEP
+                                    estimated
+                                    that complete ecological restoration of the area could require 25 to 30 years.
+                                </p>
+
+                                <p>
+                                    This exemplifies environmental health inequality in its starkest form: a community
+                                    situated
+                                    directly above the resource that generates considerable national wealth, yet bearing
+                                    some of
+                                    the highest documented levels of health exposure in the country, with remediation
+                                    efforts
+                                    still incomplete more than a decade after the assessment was published. The Nigerian
+                                    government established the Hydrocarbon Pollution Remediation Project (HYPREP) in
+                                    response;
+                                    however, its implementation has faced persistent delays — a pattern that underscores
+                                    a
+                                    second, equally important lesson: recognising health inequality does not equate to
+                                    eradicating it. Sustained institutional commitment is as crucial as the initial
+                                    assessment.
+                                </p>
+
+                                <p>
+                                    <strong>Why this matters beyond one region</strong><br>
+                                    The pattern isn't unique to the Niger Delta. Communities closest to industrial or
+                                    extractive
+                                    activity are consistently those with the least healthcare infrastructure, the least
+                                    political leverage to demand remediation, and the least financial capacity to
+                                    relocate or
+                                    absorb health costs. Climate change compounds this further — rising temperatures,
+                                    floods,
+                                    shifting disease patterns, and water stress hit populations already carrying the
+                                    greatest
+                                    pre-existing health burden hardest. The inequality isn't created by any single
+                                    event. It's
+                                    revealed and worsened by it.
+                                </p>
+
+                                <p>
+                                    <strong>What this means for impact assessment and compliance</strong><br>
+                                    For institutions and corporations undertaking high-impact projects, the Ogoniland
+                                    case has
+                                    direct practical implications.
+                                </p>
+
+                                <ul>
+                                    <li>Baseline health assessments need a climate and equity lens — not just current
+                                        exposure levels, but also pre-existing disparities in healthcare access and
+                                        infrastructure quality within the affected population.</li>
+                                    <li>Assessment without a credible remediation and monitoring pathway is incomplete —
+                                        the Ogoniland case shows that even a rigorous, internationally credible
+                                        assessment can stall for years without sustained institutional accountability.
+                                    </li>
+                                    <li>Stakeholder consultation must reach the populations most exposed, not just the
+                                        most accessible or the most vocal.</li>
+                                    <li>Compliance frameworks are tightening, with regulators and financiers
+                                        increasingly expecting climate-adjusted, equity-aware health risk analysis to be
+                                        standard, not exceptional, practice.</li>
+                                </ul>
+
+                                <p>
+                                    <strong>Where SIA's niche sits</strong><br>
+                                    This is precisely why environmental health, climate risk and social equity aren't
+                                    run as
+                                    separate service lines for us — and why we don't treat an assessment as the finish
+                                    line. A
+                                    credible environmental health risk assessment must be read in light of the
+                                    pre-existing
+                                    inequalities that shape who bears the risk, and it must include a realistic,
+                                    monitored
+                                    pathway to remediation, not just a report.
+                                </p>
+
+                                <p>
+                                    <strong>Talk to us</strong><br>
+                                    For any organisation undertaking a project with real exposure — industrial,
+                                    infrastructure,
+                                    extractive, or otherwise — the standard has shifted. Health, climate, and equity
+                                    risks need
+                                    to be considered holistically, with accountability that doesn't end at publication.
+                                </p>
+
+                                <p>
+                                    <b>Sources</b><br>
+                                    1. United Nations Environment Programme. (2011). Environmental Assessment of
+                                    Ogoniland.
+                                    UNEP. <a href="//wedocs.unep.org/items/6a723752-f705-41ea-b744-ae2f49f92809">Read
+                                        more</a><br><br>
+                                    2. United Nations Environment Programme. (2011). UNEP Ogoniland oil assessment
+                                    reveals
+                                    extent of environmental contamination and threats to human health [News story].
+                                    <a
+                                        href="//www.unep.org/news-and-stories/story/unep-ogoniland-oil-assessment-reveals-extent-environmental-contamination-and">Read
+                                        more</a><br><br>
+                                    3. Amnesty International. (2011). UN confirms massive oil pollution in Niger Delta
+                                    [Press
+                                    release]. <a
+                                        href="https://www.amnesty.org/en/latest/press-release/2011/08/un-confirms-massive-oil-pollution-niger-delta/">Read
+                                        More</a><br><br>
+                                    4. Udoh, I. A., & Martin, A. (2018). Public health emergency, UNEP environmental
+                                    assessment
+                                    and the clean-up of Nigeria's Niger Delta. Archives of Health Open Access Journal,
+                                    2(6),
+                                    386–389. <a href="//doi.org/10.15406/ahoaj.2018.02.00085">Read more</a>
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
 
 
-                <p>
-                    What this means for impact assessment and compliance<br>
-                    For institutions and corporations undertaking high-impact projects, the Ogoniland case has direct
-                    practical implications.<br>
-                    <li>Baseline health assessments need a climate and equity lens — not just current exposure levels,
-                        but also pre-existing disparities in healthcare access and infrastructure quality within the
-                        affected population.</li>
-
-                    <li>Assessment without a credible remediation and monitoring pathway is incomplete — the Ogoniland
-                        case shows that even a rigorous, internationally credible assessment can stall for years without
-                        sustained institutional accountability.</li>
-
-                    <li>Stakeholder consultation must reach the populations most exposed, not just the most accessible
-                        or the most vocal.</li>
-
-                    <li>Compliance frameworks are tightening, with regulators and financiers increasingly expecting
-                        climate-adjusted, equity-aware health risk analysis to be standard, not exceptional, practice.
-                    </li>
-
-                </p>
-
-                <div class="insight-article">
-
-                    <p>
-                        Where SIA's niche sits<br>
-                        This is precisely why environmental health, climate risk and social equity aren't run as
-                        separate service lines for us — and why we don't treat an assessment as the finish line. A
-                        credible environmental health risk assessment must be read in light of the pre-existing
-                        inequalities that shape who bears the risk, and it must include a realistic, monitored pathway
-                        to remediation, not just a report.
-
-                    </p>
-
-                    <p>
-                        Talk to us<br>
-                        For any organisation undertaking a project with real exposure — industrial, infrastructure,
-                        extractive, or otherwise — the standard has shifted. Health, climate, and equity risks need to
-                        be considered holistically, with accountability that doesn't end at publication.
-
-                    </p>
-
-                    <p>
-                        Sources<br>
-                        1. United Nations Environment Programme. (2011). Environmental Assessment of Ogoniland. UNEP.
-                        <a href="//wedocs.unep.org/items/6a723752-f705-41ea-b744-ae2f49f92809">Read More</a><br>
-
-                        2. United Nations Environment Programme. (2011). UNEP Ogoniland oil assessment reveals extent of
-                        environmental contamination and threats to human health [News story].
-                        <a
-                            href="//www.unep.org/news-and-stories/story/unep-ogoniland-oil-assessment-reveals-extent-environmental-contamination-and">Read
-                            more</a><br><br>
-                        3. Amnesty International. (2011). UN confirms massive oil pollution in Niger Delta [Press
-                        release].
-                        <a
-                            href=" https://www.amnesty.org/en/latest/press-release/2011/08/un-confirms-massive-oil-pollution-niger-delta/">Read
-                            More</a><br><br>
-                        4. Udoh, I. A., & Martin, A. (2018). Public health emergency, UNEP environmental assessment and
-                        the clean-up of Nigeria’s Niger Delta. Archives of Health Open Access Journal, 2(6), 386–389.
-                        <a href="//doi.org/10.15406/ahoaj.2018.02.00085">Read more</a>
-
-
-                    </p>
-
-                </div>
-
-        </div>
-
-        </article>
-
-
-
-
-
-        </div>
+            </div>
 
         </div>
 
 
     </section>
-
-    <!-- CTA -->
-
-
 
     <!-- FOOTER -->
 
@@ -929,13 +1077,9 @@
 
                     <div class="brand" style="color:#fff;">
 
-                        <span class="brand-mark">
-                            SIA
-                        </span>
-
                         <span class="brand-name" style="color:#fff;">
                             <span class="full">
-                                Sustainable Impact Advisory Ltd
+                                Sustainable Impact Advisory
                             </span>
                         </span>
 
@@ -1046,7 +1190,7 @@
                             </a>
                         </li>
 
-                        <li><a href="tel:+2349074832034">+2349025815283</a></li>
+                        <li><a href="tel:+2349025815283">+2349025815283</a></li>
                         <li><a href="tel:+2349074832034">+2349074832034</a></li>
 
                     </ul>
@@ -1101,10 +1245,27 @@
 
     <script src="js/main.js"></script>
 
+    <script>
+        // Insights: expand/collapse "Read more" articles
+        document.querySelectorAll('.insight-toggle').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var card = btn.closest('.insight-card');
+                var article = card.querySelector('.insight-article');
+                var label = btn.querySelector('.toggle-label');
+                var icon = btn.querySelector('.toggle-icon');
+                var isOpen = article.classList.toggle('open');
 
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                label.textContent = isOpen ? 'Read less' : 'Read more';
+                icon.textContent = isOpen ? '\u2212' : '+';
 
-
-
+                if (!isOpen) {
+                    // scroll back to the top of the card when collapsing
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        });
+    </script>
 
 </body>
 
